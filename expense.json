@@ -1,5 +1,6 @@
 {
     "ELECTRICITY": "400",
-    "House": "1000",
-    "FOOD": "500"
+    "FOOD": "500",
+    "loan": "5000",
+    "house": "700"
 }
