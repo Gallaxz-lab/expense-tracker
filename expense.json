@@ -1,0 +1,27 @@
+[
+    {
+        "amount": 20000.0,
+        "category": "GOOD",
+        "date": "2026-07-12"
+    },
+    {
+        "amount": 20.0,
+        "category": "FOOD",
+        "date": "2026-07-13"
+    },
+    {
+        "amount": 25.0,
+        "category": "GOOD",
+        "date": "2026-07-13"
+    },
+    {
+        "amount": 2000.0,
+        "category": "GOOD",
+        "date": "2026-07-13"
+    },
+    {
+        "amount": 2.0,
+        "category": "HOOOD",
+        "date": "2026-07-13"
+    }
+]
