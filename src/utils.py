@@ -5,8 +5,8 @@ from expense import eplass
 
 expenses = []
 
-if os.path.exists("expense.json"):
-    with open("expense.json", "r") as file:
+if os.path.exists("src\expense.json"):
+    with open("src\expense.json", "r") as file:
         try:
             raw_data = json.load(file)
             # If the JSON contains a list, convert each dict back into an OOP object
@@ -34,7 +34,7 @@ else:
     ]
 
 def save_to_json():
-    with open("expense.json", "w") as file:
+    with open("src\expense.json", "w") as file:
         json_ready_list = [exp.to_dict() for exp in expenses]
         json.dump(json_ready_list, file, indent=4)
         
