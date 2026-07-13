@@ -15,3 +15,5 @@ class eplass:
             "category": self.category,
             "date": self.date
         }
+    def displayname(self):
+        print(f"{self.category}")

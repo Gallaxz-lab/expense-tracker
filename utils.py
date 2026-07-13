@@ -1,6 +1,6 @@
 import json
 import os
-from exp_class import eplass
+from expense import eplass
 
 
 expenses = []
@@ -41,13 +41,13 @@ def save_to_json():
 
 def add_expense(ures):
     if ures == 1:
-        category = input("Enter the category: ").upper()
+        category = input("Enter the category: ").upper().strip()
         try:
             amount = float(input("Please type the amount: "))
         except ValueError:
             print("Invalid input. Please enter a valid number.\n")
             return
-        date = input("Enter date (YYYY-MM-DD) or press Enter for today: ")    
+        date = input("Enter date (YYYY-MM-DD) or press Enter for today: ").strip()    
         eplass_instance = eplass(amount, category, date)
         print("\nConfirm details:")
         eplass_instance.display()
@@ -90,7 +90,7 @@ def search_expense(ures):
 
 def delete_expense(ures):
     if ures == 5:
-        expense_name = input("Enter the name of the expense to delete: ").strip().lower() 
+        expense_name = input("Enter the name of the expense to delete: ").lower()
         found = False
         for exp in expenses:
             if exp.category.lower() == expense_name:
@@ -102,12 +102,29 @@ def delete_expense(ures):
                 break
         if not found:
             print(f"Expense {expense_name} not found.")
-        print("Returning to main menu...")
-            
+            print("Returning to main menu...")
+            return
 
-                 
-        
-        
+def summery_expense(ures):
+    if ures == 6:
+        totalexp = len(expenses)
+        biggest_num = 0
+        bigcat = ""
+        total = sum(exp.amount for exp in expenses)
+        cur_exp = {}
+        for exp in expenses:
+            if exp.category in cur_exp:
+                cur_exp[exp.category] += 1
+            else:
+                cur_exp[exp.category] = 1
+            if exp.amount > biggest_num:
+                 biggest_num = exp.amount
+                 bigcat = exp.category
+                 continue
+        for cat,count in cur_exp.items():
+            print(f"{cat}: {count} expenses")
+        print(f"===== Summary =====\nAll expense: {totalexp}\nHighest Expense:{bigcat} {biggest_num}$\n\nTOTAL: {total}$" )
+            
         
         
         
